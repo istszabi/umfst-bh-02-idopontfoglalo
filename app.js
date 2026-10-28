@@ -28,6 +28,7 @@ function render() {
     span.textContent = f.ido + ' – ' + f.nev;
     
     var torol = document.createElement('span');
+    torol.type = 'button';
     torol.className = 'torol';
     torol.dataset.i = i;
     torol.textContent = 'Törlés';
