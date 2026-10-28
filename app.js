@@ -21,8 +21,20 @@ function render() {
   var lista = document.getElementById('lista');
   lista.innerHTML = '';
   foglalasok.forEach(function (f, i) {
-    lista.innerHTML += '<div class="sor"><span>' + f.ido + ' – ' + f.nev + '</span>' +
-      '<span class="torol" data-i="' + i + '">Törlés</span></div>';
+    var sor = document.createElement('div');
+    sor.className = 'sor';
+    
+    var span = document.createElement('span');
+    span.textContent = f.ido + ' – ' + f.nev;
+    
+    var torol = document.createElement('span');
+    torol.className = 'torol';
+    torol.dataset.i = i;
+    torol.textContent = 'Törlés';
+
+    sor.appendChild(span);
+    sor.appendChild(torol);
+    lista.appendChild(sor);
   });
   document.querySelectorAll('.torol').forEach(function (el) {
     el.addEventListener('click', function () {
